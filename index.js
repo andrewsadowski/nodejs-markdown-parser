@@ -8,9 +8,9 @@ var body = fs.readFileSync(fileName).toString();
 
 // var reg = new RegExp(/\*[^*]+\*/g);
 
-var result = body.match(/\*[^*]+\*/g);
+var result = body.match(/\*+[^**]+\*+/g, '\n');
 
-console.log(result + '\n');
+console.log(result);
 
 fs.writeFile(`${fileName}_output.txt`, result, (err) => {
     if(err) {
