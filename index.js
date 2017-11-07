@@ -6,9 +6,10 @@ var fileName = "test_enUS.txt"
 var readableStream = fs.createReadStream(fileName);
 var body = fs.readFileSync(fileName).toString();
 
-// var reg = new RegExp(/\*[^*]+\*/g);
+var reg = new RegExp(/\*+[^*]+\*+/g);
+var subst = "$&\n"
 
-var result = body.match(/\*+[^**]+\*+/g, '\n');
+var result = body.match(reg, subst);
 
 console.log(result);
 
